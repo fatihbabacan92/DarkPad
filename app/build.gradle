@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Fatih Babacan 2019.
+ * DarkPad is created by Fatih Babacan and released under the GPL3 license.
+ * Please refer to the GPL3 license for additional information.
+ */
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -39,4 +45,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.anko:anko:0.10.8"
 }
