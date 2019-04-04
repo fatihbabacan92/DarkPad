@@ -8,13 +8,29 @@ package be.demillennial.darkpad.Data
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import be.demillennial.darkpad.DB_NAME
+import be.demillennial.darkpad.TABLE_NAME
 import org.jetbrains.anko.db.*
 import org.jetbrains.anko.db.ManagedSQLiteOpenHelper
 
-class DbHelper(context: Context) : ManagedSQLiteOpenHelper(context, "NotesDB", null, 1) {
+class DbHelper(context: Context) : ManagedSQLiteOpenHelper(context, DB_NAME, null, 1) {
+
+    companion object {
+        private var instance: DbHelper? = null
+
+        @Synchronized
+        fun getInstance(context: Context): DbHelper {
+            if (instance == null){
+                instance = DbHelper(context.applicationContext)
+            }
+
+            return instance!!
+        }
+    }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.createTable("Notes", true,
+        db.createTable(
+            TABLE_NAME, true,
             "id" to INTEGER + PRIMARY_KEY + UNIQUE,
             "title" to TEXT,
             "text" to TEXT,
@@ -22,7 +38,7 @@ class DbHelper(context: Context) : ManagedSQLiteOpenHelper(context, "NotesDB", n
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.dropTable("Notes", true)
+        db.dropTable(TABLE_NAME, true)
     }
 
 }
