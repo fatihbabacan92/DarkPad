@@ -7,4 +7,10 @@
 <resources>
     <string name="app_name">DarkPad</string>
     <string name="action_settings">Settings</string>
+
+    <!-- NoteDetailActivity -->
+    <string name="no_title">No Title</string>
+    <string name="no_text">Write some text...</string>
+    <string name="detail_delete">Delete</string>
+    <string name="detail_save">Save</string>
 </resources>
