@@ -18,7 +18,7 @@ import android.widget.TextView
 import be.demillennial.darkpad.R
 import kotlinx.android.synthetic.main.item_list_note.view.*
 
-class NoteAdapter(val notes : ArrayList<Note>, val context: Context) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class NoteAdapter(val notes : ArrayList<Note>, val context: Context?) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var noteTitle: TextView? = null
