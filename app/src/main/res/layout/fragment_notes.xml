@@ -6,7 +6,7 @@
   -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/notes_recycler_view_id"
+        android:id="@+id/fragment_notes"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,5 +20,14 @@
             android:overScrollMode="ifContentScrolls"
             android:scrollbars="none"
             tools:listitem="@layout/item_list_note"/>
+
+    <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/no_note_available"
+            android:textColor="@color/Black"/>
 
 </RelativeLayout>

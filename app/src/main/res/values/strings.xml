@@ -17,4 +17,7 @@
     <!-- MainActivity & Menu -->
     <string name="title_note">Notes</string>
     <string name="title_settings">Settings</string>
+
+    <!-- NotesFragment -->
+    <string name="no_note_available">Add a Note with the + Button!</string>
 </resources>
