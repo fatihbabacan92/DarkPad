@@ -4,10 +4,21 @@
   ~ DarkPad is created by Fatih Babacan and released under the GPL3 license.
   ~ Please refer to the GPL3 license for additional information.
   -->
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                                        android:id="@+id/notes_recycler_view_id"
-                                        android:scrollbars="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:background="#7FFFFFFF">
-</androidx.recyclerview.widget.RecyclerView>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/notes_recycler_view_id"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7FFFFFFF">
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notes_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbars="none"
+            tools:listitem="@layout/item_list_note"/>
+
+</RelativeLayout>
