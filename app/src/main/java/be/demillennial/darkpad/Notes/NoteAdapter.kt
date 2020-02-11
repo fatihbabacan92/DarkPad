@@ -8,6 +8,7 @@ package be.demillennial.darkpad.Notes
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +16,15 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.Fragment
 import be.demillennial.darkpad.R
 import kotlinx.android.synthetic.main.item_list_note.view.*
+import java.security.AccessController.getContext
 
 class NoteAdapter(val notes : ArrayList<Note>, val context: Context?) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+
+    var onItemClick: ((Note) -> Unit)? = null
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var noteTitle: TextView? = null
@@ -26,7 +32,11 @@ class NoteAdapter(val notes : ArrayList<Note>, val context: Context?) : Recycler
 
         init {
             this.noteTitle = itemView?.findViewById<TextView>(R.id.note_title)
-            this.noteText = itemView?.findViewById<TextView>(R.id.note_title)
+            this.noteText = itemView?.findViewById<TextView>(R.id.note_text)
+
+            itemView.setOnClickListener {
+                onItemClick?.invoke(notes[adapterPosition])
+            }
         }
     }
 
