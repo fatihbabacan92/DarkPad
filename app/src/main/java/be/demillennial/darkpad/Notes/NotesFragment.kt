@@ -7,6 +7,7 @@
 package be.demillennial.darkpad.Notes
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,5 +51,10 @@ class NotesFragment : Fragment() {
         notesDb = NotesDb(noteContext)
         noteAdapter = NoteAdapter(notesDb.getAll(), context)
         notes_list.adapter = noteAdapter
+        noteAdapter.onItemClick = { note ->
+            val intent = Intent(context, NoteDetailActivity::class.java)
+            intent.putExtra("note", note)
+            startActivity(intent)
+        }
     }
 }
