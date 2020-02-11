@@ -6,3 +6,8 @@
 
 package be.demillennial.darkpad.Notes
 
+import androidx.fragment.app.Fragment
+
+class NotesFragment : Fragment() {
+
+}
