@@ -20,12 +20,12 @@ class NoteDetailActivity() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_detail)
+
         notesDb = NotesDb(this)
+        var note: Note? = intent.getParcelableExtra("note")
 
         var noteTitle = findViewById<TextView>(R.id.detail_title)
         var noteText = findViewById<TextView>(R.id.detail_text)
-
-        var note: Note? = intent.getParcelableExtra("note")
         noteTitle.text = note?.title
         noteText.text = note?.text
     }
