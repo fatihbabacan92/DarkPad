@@ -40,16 +40,16 @@ class NotesDb(val context: Context) {
     fun getAll() : ArrayList<Note> = context.database.use {
         val notes = ArrayList<Note>()
 
-        select(TABLE_NAME, "id", "title", "text", "date")
+        select(TABLE_NAME, "id", "title", "text")
             .parseList(object: MapRowParser<List<Note>>{
                 override fun parseRow(columns: Map<String, Any?>): List<Note> {
                     val id = columns.getValue("id")
                     val title = columns.getValue("title")
                     val text = columns.getValue("text")
-                    val date = columns.getValue("date")
+                    //val date = columns.getValue("date")
 
                     val note = Note(id.toString().toLong(), title.toString(), text.toString())
-                    note.date = dateFormat.parse(date.toString())
+                   // note.date = dateFormat.parse(date.toString())
 
                     notes.add(note)
 

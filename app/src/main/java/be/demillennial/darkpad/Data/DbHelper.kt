@@ -34,7 +34,7 @@ class DbHelper(context: Context) : ManagedSQLiteOpenHelper(context, DB_NAME, nul
             "id" to INTEGER + PRIMARY_KEY + UNIQUE,
             "title" to TEXT,
             "text" to TEXT,
-            "data" to TEXT)
+            "date" to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
