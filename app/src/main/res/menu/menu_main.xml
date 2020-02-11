@@ -4,12 +4,17 @@
   ~ Please refer to the GPL3 license for additional information.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      xmlns:tools="http://schemas.android.com/tools"
-      tools:context="be.demillennial.darkpad.MainActivity">
-    <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
-          android:orderInCategory="100"
-          app:showAsAction="never"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+            android:id="@+id/navigation_note"
+            android:icon="@drawable/ic_subtitles_white_24dp"
+            android:title="@string/title_note"/>
+
+    <item
+            android:id="@+id/navigation_settings"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/title_settings"/>
+
 </menu>

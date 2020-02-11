@@ -13,4 +13,8 @@
     <string name="no_text">Write some text...</string>
     <string name="detail_delete">Delete</string>
     <string name="detail_save">Save</string>
+
+    <!-- MainActivity & Menu -->
+    <string name="title_note">Notes</string>
+    <string name="title_settings">Settings</string>
 </resources>
