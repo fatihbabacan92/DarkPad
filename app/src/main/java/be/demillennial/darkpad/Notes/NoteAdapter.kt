@@ -6,21 +6,14 @@
 
 package be.demillennial.darkpad.Notes
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
-import androidx.fragment.app.Fragment
 import be.demillennial.darkpad.R
-import kotlinx.android.synthetic.main.item_list_note.view.*
-import java.security.AccessController.getContext
+
 
 class NoteAdapter(val notes : ArrayList<Note>, val context: Context?) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
