@@ -12,7 +12,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import be.demillennial.darkpad.Data.NotesDb
 import be.demillennial.darkpad.R
 import kotlinx.android.synthetic.main.fragment_notes.*
@@ -37,6 +40,32 @@ class NotesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var rootView = inflater!!.inflate(R.layout.fragment_notes, container, false)
+
+        val context: Context? = super.getContext()
+        val noteContext: Context = activity!!.applicationContext!!
+        notesDb = NotesDb(noteContext)
+        val notes = notesDb.getAll()
+
+        var notes_list = rootView.findViewById<RecyclerView>(R.id.notes_list)
+        var empty_view = rootView.findViewById<TextView>(R.id.empty_view)
+        notes_list.layoutManager = LinearLayoutManager(activity)
+        noteAdapter = NoteAdapter(notes, context)
+        notes_list.adapter = noteAdapter
+
+        if (notes.isEmpty()) {
+            notes_list.visibility = View.INVISIBLE
+            empty_view.visibility = View.VISIBLE
+        } else {
+            notes_list.visibility = View.VISIBLE
+            empty_view.visibility = View.INVISIBLE
+        }
+
+        noteAdapter.onItemClick = { note ->
+            val intent = Intent(context, NoteDetailActivity::class.java)
+            intent.putExtra("note", note)
+            startActivity(intent)
+            }
+
         return rootView
     }
 
@@ -46,15 +75,6 @@ class NotesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val context: Context? = super.getContext()
-        val noteContext: Context = activity!!.applicationContext!!
-        notesDb = NotesDb(noteContext)
-        noteAdapter = NoteAdapter(notesDb.getAll(), context)
-        notes_list.adapter = noteAdapter
-        noteAdapter.onItemClick = { note ->
-            val intent = Intent(context, NoteDetailActivity::class.java)
-            intent.putExtra("note", note)
-            startActivity(intent)
-        }
+
     }
 }
