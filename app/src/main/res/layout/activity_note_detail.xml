@@ -22,16 +22,20 @@
                 app:cardBackgroundColor="?android:attr/colorPrimaryDark"
                 app:cardCornerRadius="15dp">
 
-            <TextView
+            <EditText
                     android:id="@+id/detail_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="@string/no_title"
+                    android:contextClickable="true"
+                    android:cursorVisible="true"
                     android:fontFamily="sans-serif"
+                    android:inputType="textMultiLine"
+                    android:text="@string/no_title"
                     android:textAlignment="center"
+                    android:textColor="?android:attr/textColor"
                     android:textSize="15sp"
-                    android:textColor="?android:attr/textColor"/>
+                    android:background="@null"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -41,15 +45,19 @@
                                            app:cardBackgroundColor="?android:attr/colorPrimaryDark"
                                            app:cardCornerRadius="15dp">
 
-           <TextView
+           <EditText
                    android:id="@+id/detail_text"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
+                   android:layout_width="382dp"
+                   android:layout_height="535dp"
                    android:layout_margin="5dp"
-                   android:text="@string/no_text"
                    android:fontFamily="sans-serif"
+                   android:inputType="textMultiLine"
+                   android:text="@string/no_text"
+                   android:textAlignment="viewStart"
+                   android:textColor="?android:attr/textColor"
                    android:textSize="15sp"
-                   android:textColor="?android:attr/textColor"/>
+                   android:gravity="top"
+                   android:background="@null" />
 
        </androidx.cardview.widget.CardView>
 
