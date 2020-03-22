@@ -53,7 +53,6 @@
                    android:fontFamily="sans-serif"
                    android:inputType="textMultiLine"
                    android:text="@string/no_text"
-                   android:textAlignment="viewStart"
                    android:textColor="?android:attr/textColor"
                    android:textSize="15sp"
                    android:gravity="top"

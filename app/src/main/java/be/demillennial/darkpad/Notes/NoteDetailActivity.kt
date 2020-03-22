@@ -31,6 +31,8 @@ class NoteDetailActivity() : AppCompatActivity() {
 
         if (newNote)
         {
+            noteTitle.setHint("Title")
+            noteText.setHint("Write your note here...")
             noteTitle.text = ""
             noteText.text = ""
         } else {
