@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DarkPad.iml" filepath="$PROJECT_DIR$/DarkPad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/DarkPad-app.iml" filepath="$PROJECT_DIR$/app/DarkPad-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Git-DarkPad.iml" filepath="$PROJECT_DIR$/Git-DarkPad.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

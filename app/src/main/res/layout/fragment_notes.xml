@@ -5,6 +5,7 @@
   ~ Please refer to the GPL3 license for additional information.
   -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/fragment_notes"
         android:scrollbars="vertical"
@@ -29,5 +30,15 @@
             android:visibility="gone"
             android:text="@string/no_note_available"
             android:textColor="@color/Black"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:layout_margin="15dp"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
 </RelativeLayout>

@@ -22,11 +22,21 @@ class NoteDetailActivity() : AppCompatActivity() {
         setContentView(R.layout.activity_note_detail)
 
         notesDb = NotesDb(this)
-        var note: Note? = intent.getParcelableExtra("note")
 
         var noteTitle = findViewById<TextView>(R.id.detail_title)
         var noteText = findViewById<TextView>(R.id.detail_text)
-        noteTitle.text = note?.title
-        noteText.text = note?.text
+
+        var note: Note? = intent.getParcelableExtra("openNote")
+        var newNote: Boolean = intent.getBooleanExtra("newNote", false)
+
+        if (newNote)
+        {
+            noteTitle.text = ""
+            noteText.text = ""
+        } else {
+            noteTitle.text = note?.title
+            noteText.text = note?.text
+        }
+
     }
 }

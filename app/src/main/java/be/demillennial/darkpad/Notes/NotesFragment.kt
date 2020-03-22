@@ -18,6 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.demillennial.darkpad.Data.NotesDb
 import be.demillennial.darkpad.R
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.FrameLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_notes.*
 
 class NotesFragment : Fragment() {
@@ -62,9 +65,16 @@ class NotesFragment : Fragment() {
 
         noteAdapter.onItemClick = { note ->
             val intent = Intent(context, NoteDetailActivity::class.java)
-            intent.putExtra("note", note)
+            intent.putExtra("openNote", note)
             startActivity(intent)
             }
+
+        var fab = rootView.findViewById<View>(R.id.fabAddNotes)
+        fab.setOnClickListener { f ->
+            val intent = Intent(context, NoteDetailActivity::class.java)
+            intent.putExtra("newNote", true)
+            startActivity(intent)
+        }
 
         return rootView
     }
@@ -75,6 +85,5 @@ class NotesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 }
