@@ -1,0 +1,20 @@
+<!--
+  ~ Copyright (c) Fatih Babacan 2019.
+  ~ DarkPad is created by Fatih Babacan and released under the GPL3 license.
+  ~ Please refer to the GPL3 license for additional information.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+            android:id="@+id/navigation_note"
+            android:icon="@drawable/ic_subtitles_white_24dp"
+            android:title="@string/title_note"/>
+
+    <item
+            android:id="@+id/navigation_settings"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/title_settings"/>
+
+</menu>

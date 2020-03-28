@@ -1,0 +1,23 @@
+<!--
+  ~ Copyright (c) Fatih Babacan 2019.
+  ~ DarkPad is created by Fatih Babacan and released under the GPL3 license.
+  ~ Please refer to the GPL3 license for additional information.
+  -->
+
+<resources>
+    <string name="app_name">DarkPad</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- NoteDetailActivity -->
+    <string name="no_title">No Title</string>
+    <string name="no_text">Write some text...</string>
+    <string name="detail_delete">Delete</string>
+    <string name="detail_save">Save</string>
+
+    <!-- MainActivity & Menu -->
+    <string name="title_note">Notes</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- NotesFragment -->
+    <string name="no_note_available">Add a Note with the + Button!</string>
+</resources>

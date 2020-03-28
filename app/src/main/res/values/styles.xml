@@ -1,0 +1,39 @@
+<!--
+  ~ Copyright (c) Fatih Babacan 2019.
+  ~ DarkPad is created by Fatih Babacan and released under the GPL3 license.
+  ~ Please refer to the GPL3 license for additional information.
+  -->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/Black</item>
+        <item name="colorPrimaryDark">@color/DarkGray</item>
+        <item name="colorAccent">@color/Red</item>
+        <item name="android:textColor">@color/White</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <!-- Base application theme. -->
+    <style name="BlackTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/Black</item>
+        <item name="colorPrimaryDark">@color/DarkGray</item>
+        <item name="colorAccent">@color/Orange</item>
+        <item name="android:textColor">@color/White</item>
+    </style>
+    <style name="BlackTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="BlackTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="BlackTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+</resources>
