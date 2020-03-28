@@ -46,6 +46,7 @@ class NotesFragment : Fragment() {
 
         val context: Context? = super.getContext()
         val noteContext: Context = activity!!.applicationContext!!
+
         notesDb = NotesDb(noteContext)
         notes = notesDb.getAll()
 
@@ -86,9 +87,23 @@ class NotesFragment : Fragment() {
         noteAdapter = NoteAdapter(notes, context)
 
         var notes_list = activity?.findViewById<RecyclerView>(R.id.notes_list)
+        var empty_view = activity?.findViewById<TextView>(R.id.empty_view)
         notes_list?.layoutManager = LinearLayoutManager(activity)
         notes_list?.adapter = noteAdapter
-        noteAdapter.notifyDataSetChanged()
+
+        if (notes.isEmpty()) {
+            notes_list?.visibility = View.INVISIBLE
+            empty_view?.visibility = View.VISIBLE
+        } else {
+            notes_list?.visibility = View.VISIBLE
+            empty_view?.visibility = View.INVISIBLE
+        }
+
+        noteAdapter.onItemClick = { note ->
+            val intent = Intent(context, NoteDetailActivity::class.java)
+            intent.putExtra("openNote", note)
+            startActivity(intent)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
