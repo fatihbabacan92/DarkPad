@@ -25,7 +25,6 @@ class NoteDetailActivity() : AppCompatActivity() {
     private lateinit var noteTitle: TextView
     private lateinit var noteText: TextView
     private var newNote: Boolean = false
-    private var isDelete = false
     private var isSave = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,9 +57,9 @@ class NoteDetailActivity() : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (!isSave || !isDelete) {
-            notesDb.create(createNote())
-        }
+       // if (!isSave) {
+        //    notesDb.create(createNote())
+       //}
     }
 
     private fun createNote(): Note {
@@ -96,7 +95,7 @@ class NoteDetailActivity() : AppCompatActivity() {
     private fun deleteNewNoteListener() {
         var deleteButton = findViewById<Button>(R.id.buttonDelete)
         buttonDelete.onClick { d ->
-            isDelete = true
+            isSave = true
             onBackPressed()
         }
     }
@@ -105,7 +104,7 @@ class NoteDetailActivity() : AppCompatActivity() {
         var deleteButton = findViewById<Button>(R.id.buttonDelete)
         buttonDelete.onClick { d ->
             notesDb.delete(note!!)
-            isDelete = true
+            isSave = true
             onBackPressed()
         }
     }

@@ -6,7 +6,9 @@
 
 package be.demillennial.darkpad.Notes
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,15 +20,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.demillennial.darkpad.Data.NotesDb
 import be.demillennial.darkpad.R
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.FrameLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.fragment_notes.*
+
 
 class NotesFragment : Fragment() {
 
     private lateinit var noteAdapter: NoteAdapter
     private lateinit var  notesDb: NotesDb
+    private lateinit var notes: ArrayList<Note>
 
     companion object {
         fun newInstance(): NotesFragment {
@@ -47,7 +47,7 @@ class NotesFragment : Fragment() {
         val context: Context? = super.getContext()
         val noteContext: Context = activity!!.applicationContext!!
         notesDb = NotesDb(noteContext)
-        val notes = notesDb.getAll()
+        notes = notesDb.getAll()
 
         var notes_list = rootView.findViewById<RecyclerView>(R.id.notes_list)
         var empty_view = rootView.findViewById<TextView>(R.id.empty_view)
@@ -74,9 +74,21 @@ class NotesFragment : Fragment() {
             val intent = Intent(context, NoteDetailActivity::class.java)
             intent.putExtra("newNote", true)
             startActivity(intent)
+            onPause()
         }
 
         return rootView
+    }
+
+    private fun loadNotes() {
+        notes.clear()
+        notes = notesDb.getAll()
+        noteAdapter = NoteAdapter(notes, context)
+
+        var notes_list = activity?.findViewById<RecyclerView>(R.id.notes_list)
+        notes_list?.layoutManager = LinearLayoutManager(activity)
+        notes_list?.adapter = noteAdapter
+        noteAdapter.notifyDataSetChanged()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -85,5 +97,10 @@ class NotesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadNotes()
     }
 }
