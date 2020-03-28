@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.Nullable
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import be.demillennial.darkpad.Data.NotesDb
 import be.demillennial.darkpad.R
@@ -49,7 +50,7 @@ class NoteDetailActivity() : AppCompatActivity() {
             saveNewNoteListener()
         } else {
             noteTitle.text = note?.title
-            noteText.text = note?.text
+            noteText.text = note?.text + " id:" + note?.id
             deleteOldNoteListener()
             saveOldNoteListener()
         }
@@ -65,11 +66,8 @@ class NoteDetailActivity() : AppCompatActivity() {
     private fun createNote(): Note {
         val saveText = noteText.text.toString()
         val saveTitle = noteTitle.text.toString()
-        var newCreateNote: Note = Note(saveTitle, saveText)
-        if (!newNote)
-        {
-            newCreateNote.id = note?.id!!
-        }
+
+        var newCreateNote: Note = Note(0, saveTitle, saveText)
 
         return newCreateNote
     }

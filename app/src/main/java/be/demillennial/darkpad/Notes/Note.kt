@@ -12,9 +12,7 @@ import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Note(val title: String, val text: String): Parcelable{
+data class Note(val id: Long, val title: String, val text: String): Parcelable{
     @IgnoredOnParcel
     var date: Date =Date()
-    @IgnoredOnParcel
-    var id: Long = 0
 }

@@ -48,7 +48,7 @@ class NotesDb(val context: Context) {
                     val text = columns.getValue("text")
                     //val date = columns.getValue("date")
 
-                    val note = Note(title.toString(), text.toString())
+                    val note = Note(id.toString().toLong(), title.toString(), text.toString())
                    // note.date = dateFormat.parse(date.toString())
 
                     notes.add(note)
