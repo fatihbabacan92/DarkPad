@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) Fatih Babacan 2019.
-  ~ DarkPad is created by Fatih Babacan and released under the GPL3 license.
-  ~ Please refer to the GPL3 license for additional information.
-  -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="be.demillennial.darkpad">
+        package="be.demillennial.darkpad">
 
     <application
             android:allowBackup="true"
@@ -16,16 +10,19 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".Settings.SettingsActivity"
+                android:label="@string/title_activity_settings"></activity>
+        <activity
                 android:name=".MainActivity"
                 android:label="@string/app_name"
-                android:theme="@style/AppTheme.NoActionBar">
+                >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="be.demillennial.darkpad.Notes.NoteDetailActivity"></activity>
+        <activity android:name=".Notes.NoteDetailActivity" />
     </application>
 
 </manifest>
