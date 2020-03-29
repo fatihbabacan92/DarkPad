@@ -9,17 +9,24 @@
                                     xmlns:app="http://schemas.android.com/apk/res-auto"
                                     android:layout_width="match_parent"
                                     android:layout_height="145dp"
+                                    android:layout_marginBottom="15dp"
                                     app:cardCornerRadius="15dp"
-                                    app:cardBackgroundColor="?android:attr/colorPrimaryDark">
+                                    app:cardBackgroundColor="#26708090">
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/note_title"
                 android:text="@string/no_title"
-                android:textColor="?android:attr/textColor"
+                android:textColor="?android:attr/colorAccent"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
         />
 
         <TextView

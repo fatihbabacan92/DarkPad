@@ -104,6 +104,7 @@ class NotesFragment : Fragment() {
             intent.putExtra("openNote", note)
             startActivity(intent)
         }
+        noteAdapter.notifyDataSetChanged()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

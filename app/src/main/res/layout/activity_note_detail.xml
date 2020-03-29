@@ -17,46 +17,50 @@
 
         <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_margin="15dp"
-                app:cardBackgroundColor="?android:attr/colorPrimaryDark"
+                app:cardBackgroundColor="#26708090"
                 app:cardCornerRadius="15dp">
 
             <EditText
                     android:id="@+id/detail_title"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_margin="5dp"
                     android:contextClickable="true"
                     android:cursorVisible="true"
                     android:fontFamily="sans-serif"
-                    android:inputType="textMultiLine"
+                    android:inputType="text"
                     android:text="@string/no_title"
                     android:textAlignment="center"
                     android:textColor="?android:attr/textColor"
                     android:textSize="15sp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    android:textColorHint="?android:attr/textColor"/>
 
         </androidx.cardview.widget.CardView>
 
        <androidx.cardview.widget.CardView android:layout_width="match_parent"
-                                           android:layout_height="550dp"
+                                           android:layout_height="520dp"
                                            android:layout_margin="15dp"
-                                           app:cardBackgroundColor="?android:attr/colorPrimaryDark"
-                                           app:cardCornerRadius="15dp">
+                                           app:cardBackgroundColor="#26708090"
+                                           app:cardCornerRadius="15dp"
+                                            android:nestedScrollingEnabled="true">
 
            <EditText
                    android:id="@+id/detail_text"
                    android:layout_width="382dp"
-                   android:layout_height="535dp"
-                   android:layout_margin="5dp"
+                   android:layout_height="515dp"
+                   android:layout_margin="15dp"
                    android:fontFamily="sans-serif"
                    android:inputType="textMultiLine"
                    android:text="@string/no_text"
                    android:textColor="?android:attr/textColor"
                    android:textSize="15sp"
                    android:gravity="top"
-                   android:background="@null" />
+                   android:background="@null"
+                   android:textColorHint="?android:attr/textColor"
+                   />
 
        </androidx.cardview.widget.CardView>
 
@@ -68,14 +72,16 @@
                     android:layout_width="195dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:id="@+id/buttonDelete"/>
+                    android:id="@+id/buttonDelete"
+                    android:backgroundTint="#26708090"/>
 
             <Button
                     android:text="@string/detail_save"
                     android:layout_width="195dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:id="@+id/buttonSave"/>
+                    android:id="@+id/buttonSave"
+                    android:backgroundTint="#26708090"/>
 
         </LinearLayout>
 

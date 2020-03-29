@@ -1,0 +1,38 @@
+<!--
+  ~ Copyright (c) Fatih Babacan 2020.
+  ~ DarkPad is created by Fatih Babacan and released under the GPL3 license.
+  ~ Please refer to the GPL3 license for additional information.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="About">
+        <Preference android:title="Follow us on Twitter">
+            <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://twitter.com/OneClock_App" />
+        </Preference>
+        <Preference android:title="Visit Fatih.tech">
+            <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://fatih.tech" />
+        </Preference>
+        <Preference android:title="Version 1.0.0" />
+        <Preference android:title="Privacy Policy">
+            <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://fatih.tech/darkpad/privacy_policy.html" />
+        </Preference>
+        <Preference android:title="Distributed under GPL-3.0 License">
+            <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://www.gnu.org/licenses/gpl-3.0.txt" />
+        </Preference>
+        <Preference android:title="© Copyright 2020 - De Millennial, a brand by Fatih.tech" />
+        <Preference android:title="Try out OneClock - Set Multiple Alarms at Once">
+            <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://play.google.com/store/apps/details?id=be.demillennial.oneclockfree" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

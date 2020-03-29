@@ -20,7 +20,8 @@
             android:clipToPadding="false"
             android:overScrollMode="ifContentScrolls"
             android:scrollbars="none"
-            tools:listitem="@layout/item_list_note"/>
+            tools:listitem="@layout/item_list_note"
+            android:layout_margin="15dp"/>
 
     <TextView
             android:id="@+id/empty_view"
@@ -39,6 +40,7 @@
             android:layout_alignParentRight="true"
             android:clickable="true"
             android:layout_margin="15dp"
+            android:backgroundTint="?android:attr/colorAccent"
             app:srcCompat="@android:drawable/ic_input_add" />
 
 </RelativeLayout>

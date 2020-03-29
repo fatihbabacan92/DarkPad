@@ -50,24 +50,32 @@ class NoteDetailActivity() : AppCompatActivity() {
             saveNewNoteListener()
         } else {
             noteTitle.text = note?.title
-            noteText.text = note?.text + " id:" + note?.id
+            noteText.text = note?.text
             deleteOldNoteListener()
             saveOldNoteListener()
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-       // if (!isSave) {
-        //    notesDb.create(createNote())
-       //}
+    override fun onBackPressed() {
+        if (!isSave && newNote) {
+            notesDb.create(createNote())
+        } else if (!isSave && !newNote) {
+            notesDb.update(createNote())
+        }
+        super.onBackPressed()
     }
 
     private fun createNote(): Note {
         val saveText = noteText.text.toString()
         val saveTitle = noteTitle.text.toString()
 
-        var newCreateNote: Note = Note(0, saveTitle, saveText)
+        var newCreateNote: Note
+
+        if (!newNote) {
+            newCreateNote = Note(note?.id!!, saveTitle, saveText)
+        } else {
+            newCreateNote = Note(0, saveTitle, saveText)
+        }
 
         return newCreateNote
     }
