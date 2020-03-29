@@ -56,11 +56,13 @@ class NoteDetailActivity() : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (!isSave) {
+    override fun onBackPressed() {
+        if (!isSave && newNote) {
             notesDb.create(createNote())
+        } else if (!isSave && !newNote) {
+            notesDb.update(createNote())
         }
+        super.onBackPressed()
     }
 
     private fun createNote(): Note {
