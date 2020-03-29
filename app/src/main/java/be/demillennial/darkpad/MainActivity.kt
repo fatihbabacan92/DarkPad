@@ -19,6 +19,7 @@ import be.demillennial.darkpad.Data.NotesDb
 import be.demillennial.darkpad.Notes.Note
 import be.demillennial.darkpad.Notes.NoteAdapter
 import be.demillennial.darkpad.Notes.NotesFragment
+import be.demillennial.darkpad.Settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_settings -> {
                 //message.setText(R.string.title_settings)
+                val fragment = SettingsFragment.Companion.newInstance()
+                addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
         }
