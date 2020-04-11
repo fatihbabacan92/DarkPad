@@ -58,7 +58,9 @@ class NoteDetailActivity() : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (!isSave && newNote) {
-            notesDb.create(createNote())
+            if (noteTitle.text.isNotEmpty() || noteText.text.isNotEmpty()) {
+                notesDb.create(createNote())
+            }
         } else if (!isSave && !newNote) {
             notesDb.update(createNote())
         }
