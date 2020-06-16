@@ -28,6 +28,10 @@ class NotesFragment : Fragment() {
     private lateinit var  notesDb: NotesDb
     private lateinit var notes: ArrayList<Note>
 
+    private lateinit var notes_list: RecyclerView
+    private lateinit var empty_view: TextView
+    private lateinit var fab: View
+
     companion object {
         fun newInstance(): NotesFragment {
             var notesFragment = NotesFragment()
@@ -44,14 +48,22 @@ class NotesFragment : Fragment() {
     ): View? {
         var rootView = inflater!!.inflate(R.layout.fragment_notes, container, false)
 
+        notes_list = rootView.findViewById<RecyclerView>(R.id.notes_list)
+        empty_view = rootView.findViewById<TextView>(R.id.empty_view)
+        fab = rootView.findViewById<View>(R.id.fabAddNotes)
+
+        return rootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val context: Context? = super.getContext()
         val noteContext: Context = activity!!.applicationContext!!
 
         notesDb = NotesDb(noteContext)
         notes = notesDb.getAll()
 
-        var notes_list = rootView.findViewById<RecyclerView>(R.id.notes_list)
-        var empty_view = rootView.findViewById<TextView>(R.id.empty_view)
         notes_list.layoutManager = LinearLayoutManager(activity)
         noteAdapter = NoteAdapter(notes, context)
         notes_list.adapter = noteAdapter
@@ -68,17 +80,14 @@ class NotesFragment : Fragment() {
             val intent = Intent(context, NoteDetailActivity::class.java)
             intent.putExtra("openNote", note)
             startActivity(intent)
-            }
+        }
 
-        var fab = rootView.findViewById<View>(R.id.fabAddNotes)
         fab.setOnClickListener { f ->
             val intent = Intent(context, NoteDetailActivity::class.java)
             intent.putExtra("newNote", true)
             startActivity(intent)
             onPause()
         }
-
-        return rootView
     }
 
     private fun loadNotes() {
@@ -105,10 +114,6 @@ class NotesFragment : Fragment() {
             startActivity(intent)
         }
         noteAdapter.notifyDataSetChanged()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
