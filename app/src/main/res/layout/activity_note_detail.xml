@@ -17,7 +17,7 @@
 
         <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="55dp"
                 android:layout_margin="15dp"
                 app:cardBackgroundColor="#26708090"
                 app:cardCornerRadius="15dp">
@@ -66,21 +66,23 @@
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="match_parent"
-                      android:orientation="horizontal" >
+                      android:orientation="horizontal"
+                        android:layout_marginRight="5dp"
+                android:layout_marginLeft="12dp">
 
             <Button
                     android:text="@string/detail_delete"
-                    android:layout_width="195dp"
+                    android:layout_width="175dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="10dp"
                     android:id="@+id/buttonDelete"
                     android:backgroundTint="#26708090"/>
 
             <Button
                     android:text="@string/detail_save"
-                    android:layout_width="195dp"
+                    android:layout_width="175dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="10dp"
                     android:id="@+id/buttonSave"
                     android:backgroundTint="#26708090"/>
 
