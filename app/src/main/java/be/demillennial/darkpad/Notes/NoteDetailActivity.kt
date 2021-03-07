@@ -66,10 +66,17 @@ class NoteDetailActivity() : AppCompatActivity() {
         super.onPause()
     }
 
+    override fun onResume() {
+        isSave = false;
+        super.onResume()
+    }
+
      private fun saveNoteOnLeave() {
         if (!isSave && newNote) {
             if (noteTitle.text.isNotEmpty() || noteText.text.isNotEmpty()) {
                 notesDb.create(createNote())
+                newNote = false;
+                isSave = true;
             }
         } else if (!isSave && !newNote) {
             notesDb.update(createNote())
