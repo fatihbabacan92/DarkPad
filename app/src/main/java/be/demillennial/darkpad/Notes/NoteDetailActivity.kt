@@ -70,6 +70,7 @@ class NoteDetailActivity() : AppCompatActivity() {
         if (!isSave && newNote) {
             if (noteTitle.text.isNotEmpty() || noteText.text.isNotEmpty()) {
                 notesDb.create(createNote())
+                newNote = false;
             }
         } else if (!isSave && !newNote) {
             notesDb.update(createNote())
