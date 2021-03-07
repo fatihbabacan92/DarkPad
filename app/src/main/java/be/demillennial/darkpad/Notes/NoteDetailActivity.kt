@@ -57,6 +57,16 @@ class NoteDetailActivity() : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        saveNoteOnLeave()
+        super.onBackPressed()
+    }
+
+    override fun onPause() {
+        saveNoteOnLeave()
+        super.onPause()
+    }
+
+     private fun saveNoteOnLeave() {
         if (!isSave && newNote) {
             if (noteTitle.text.isNotEmpty() || noteText.text.isNotEmpty()) {
                 notesDb.create(createNote())
@@ -64,7 +74,6 @@ class NoteDetailActivity() : AppCompatActivity() {
         } else if (!isSave && !newNote) {
             notesDb.update(createNote())
         }
-        super.onBackPressed()
     }
 
     private fun createNote(): Note {
