@@ -78,7 +78,7 @@ class NoteDetailActivity() : AppCompatActivity() {
                 newNote = false;
                 isSave = true;
             }
-        } else if (!isSave && !newNote) {
+        } else if (!isSave && !newNote && note != null) {
             notesDb.update(createNote())
         }
     }
