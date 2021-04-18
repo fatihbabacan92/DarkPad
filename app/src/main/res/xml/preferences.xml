@@ -19,7 +19,7 @@
                     android:action="android.intent.action.VIEW"
                     android:data="http://fatih.tech" />
         </Preference>
-        <Preference android:title="Version 1.0.3" />
+        <Preference android:title="Version 1.0.4" />
         <Preference android:title="Privacy Policy">
             <intent
                     android:action="android.intent.action.VIEW"
