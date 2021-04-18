@@ -56,7 +56,8 @@
                 <EditText
                         android:id="@+id/detail_text"
                         android:layout_width="382dp"
-                        android:layout_height="515dp"
+                        android:layout_height="match_parent"
+                        android:minHeight="450dp"
                         android:layout_margin="15dp"
                         android:background="@null"
                         android:fontFamily="sans-serif"
