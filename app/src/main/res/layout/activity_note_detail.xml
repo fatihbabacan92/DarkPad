@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) Fatih Babacan 2019.
   ~ DarkPad is created by Fatih Babacan and released under the GPL3 license.
   ~ Please refer to the GPL3 license for additional information.
   -->
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 android:background="?android:attr/colorPrimary">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/colorPrimary">
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -27,6 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_margin="5dp"
+                    android:background="@null"
                     android:contextClickable="true"
                     android:cursorVisible="true"
                     android:fontFamily="sans-serif"
@@ -34,62 +35,67 @@
                     android:text="@string/no_title"
                     android:textAlignment="center"
                     android:textColor="?android:attr/textColor"
-                    android:textSize="15sp"
-                    android:background="@null"
-                    android:textColorHint="?android:attr/textColor"/>
+                    android:textColorHint="?android:attr/textColor"
+                    android:textSize="15sp" />
 
         </androidx.cardview.widget.CardView>
 
-       <androidx.cardview.widget.CardView android:layout_width="match_parent"
-                                           android:layout_height="520dp"
-                                            android:layout_weight="10"
-                                           android:layout_margin="15dp"
-                                           app:cardBackgroundColor="#26708090"
-                                           app:cardCornerRadius="15dp"
-                                            android:nestedScrollingEnabled="true">
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="520dp"
+                android:layout_margin="15dp"
+                android:layout_weight="10"
+                android:nestedScrollingEnabled="true"
+                app:cardBackgroundColor="#26708090"
+                app:cardCornerRadius="15dp">
 
-           <EditText
-                   android:id="@+id/detail_text"
-                   android:layout_width="382dp"
-                   android:layout_height="515dp"
-                   android:layout_margin="15dp"
-                   android:fontFamily="sans-serif"
-                   android:inputType="textMultiLine"
-                   android:text="@string/no_text"
-                   android:textColor="?android:attr/textColor"
-                   android:textSize="15sp"
-                   android:gravity="top"
-                   android:background="@null"
-                   android:textColorHint="?android:attr/textColor"
-                   />
+            <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-       </androidx.cardview.widget.CardView>
+                <EditText
+                        android:id="@+id/detail_text"
+                        android:layout_width="382dp"
+                        android:layout_height="515dp"
+                        android:layout_margin="15dp"
+                        android:background="@null"
+                        android:fontFamily="sans-serif"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:text="@string/no_text"
+                        android:textColor="?android:attr/textColor"
+                        android:textColorHint="?android:attr/textColor"
+                        android:textSize="15sp" />
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
+                android:layout_marginLeft="12dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginLeft="12dp">
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
             <Button
-                    android:text="@string/detail_delete"
-                    android:layout_width="175dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:layout_margin="10dp"
                     android:id="@+id/buttonDelete"
-                    android:backgroundTint="#26708090"/>
-
-            <Button
-                    android:text="@string/detail_save"
                     android:layout_width="175dp"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#26708090"
+                    android:text="@string/detail_delete" />
+
+            <Button
                     android:id="@+id/buttonSave"
-                    android:backgroundTint="#26708090"/>
+                    android:layout_width="175dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#26708090"
+                    android:text="@string/detail_save" />
 
         </LinearLayout>
 
