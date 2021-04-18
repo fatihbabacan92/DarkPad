@@ -76,7 +76,7 @@
             <Button
                     android:text="@string/detail_delete"
                     android:layout_width="175dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:id="@+id/buttonDelete"
@@ -85,7 +85,7 @@
             <Button
                     android:text="@string/detail_save"
                     android:layout_width="175dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:id="@+id/buttonSave"

@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Notes.NoteDetailActivity" />
+        <activity android:name=".Notes.NoteDetailActivity" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
