@@ -89,7 +89,7 @@ class NoteDetailActivity() : AppCompatActivity() {
 
         var newCreateNote: Note
 
-        if (!newNote) {
+        if (!newNote && note != null) {
             newCreateNote = Note(note?.id!!, saveTitle, saveText)
         } else {
             newCreateNote = Note(0, saveTitle, saveText)
