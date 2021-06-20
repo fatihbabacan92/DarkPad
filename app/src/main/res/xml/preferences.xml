@@ -14,12 +14,12 @@
                     android:action="android.intent.action.VIEW"
                     android:data="https://twitter.com/OneClock_App" />
         </Preference>
-        <Preference android:title="Visit Fatih.tech">
+<!--        <Preference android:title="Visit Fatih.tech">
             <intent
                     android:action="android.intent.action.VIEW"
                     android:data="http://fatih.tech" />
-        </Preference>
-        <Preference android:title="Version 1.0.7" />
+        </Preference>-->
+        <Preference android:title="Version 1.0.8" />
         <Preference android:title="Privacy Policy">
             <intent
                     android:action="android.intent.action.VIEW"
@@ -30,7 +30,7 @@
                     android:action="android.intent.action.VIEW"
                     android:data="https://www.gnu.org/licenses/gpl-3.0.txt" />
         </Preference>
-        <Preference android:title="© Copyright 2020 - De Millennial, a brand by Fatih.tech" />
+        <Preference android:title="© Copyright 2020/2021 - De Millennial" />
         <Preference android:title="Try out OneClock - Set Multiple Alarms at Once">
             <intent
                     android:action="android.intent.action.VIEW"

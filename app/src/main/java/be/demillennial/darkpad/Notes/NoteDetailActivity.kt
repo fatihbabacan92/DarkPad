@@ -9,6 +9,7 @@ package be.demillennial.darkpad.Notes
 import android.content.Context
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AlertDialog
@@ -17,6 +18,8 @@ import be.demillennial.darkpad.Data.NotesDb
 import be.demillennial.darkpad.R
 import kotlinx.android.synthetic.main.activity_note_detail.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onKey
+import org.jetbrains.anko.sdk27.coroutines.textChangedListener
 import org.w3c.dom.Text
 
 class NoteDetailActivity() : AppCompatActivity() {
@@ -42,8 +45,8 @@ class NoteDetailActivity() : AppCompatActivity() {
 
         if (newNote)
         {
-            noteTitle.setHint("Title")
-            noteText.setHint("Write your note here...")
+            noteTitle.hint = "Title"
+            noteText.hint = "Write your note here..."
             noteTitle.text = ""
             noteText.text = ""
             deleteNewNoteListener()
@@ -57,12 +60,12 @@ class NoteDetailActivity() : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        saveNoteOnLeave()
+        saveNote()
         super.onBackPressed()
     }
 
     override fun onPause() {
-        saveNoteOnLeave()
+        saveNote()
         super.onPause()
     }
 
@@ -71,7 +74,15 @@ class NoteDetailActivity() : AppCompatActivity() {
         super.onResume()
     }
 
-     private fun saveNoteOnLeave() {
+    private fun editListener() {
+        var editText = findViewById<EditText>(R.id.detail_text)
+
+        editText.textChangedListener {
+            saveNote()
+        }
+    }
+
+     private fun saveNote() {
         if (!isSave && newNote) {
             if (noteTitle.text.isNotEmpty() || noteText.text.isNotEmpty()) {
                 notesDb.create(createNote())
@@ -100,7 +111,7 @@ class NoteDetailActivity() : AppCompatActivity() {
 
     private fun saveNewNoteListener() {
         var saveButton = findViewById<Button>(R.id.buttonSave)
-        saveButton.onClick { s ->
+        saveButton.onClick {
             notesDb.create(createNote())
             isSave = true
             onBackPressed()
@@ -109,7 +120,7 @@ class NoteDetailActivity() : AppCompatActivity() {
 
     private fun saveOldNoteListener() {
         var saveButton = findViewById<Button>(R.id.buttonSave)
-        saveButton.onClick { s ->
+        saveButton.onClick {
             notesDb.update(createNote())
             isSave = true
             onBackPressed()
@@ -118,7 +129,7 @@ class NoteDetailActivity() : AppCompatActivity() {
 
     private fun deleteNewNoteListener() {
         var deleteButton = findViewById<Button>(R.id.buttonDelete)
-        buttonDelete.onClick { d ->
+        buttonDelete.onClick {
             isSave = true
             onBackPressed()
         }
@@ -126,7 +137,7 @@ class NoteDetailActivity() : AppCompatActivity() {
 
     private fun deleteOldNoteListener() {
         var deleteButton = findViewById<Button>(R.id.buttonDelete)
-        buttonDelete.onClick { d ->
+        buttonDelete.onClick {
             notesDb.delete(note!!)
             isSave = true
             onBackPressed()
