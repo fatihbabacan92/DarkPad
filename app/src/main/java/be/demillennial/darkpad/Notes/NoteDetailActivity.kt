@@ -19,6 +19,7 @@ import be.demillennial.darkpad.R
 import kotlinx.android.synthetic.main.activity_note_detail.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onKey
+import org.jetbrains.anko.sdk27.coroutines.textChangedListener
 import org.w3c.dom.Text
 
 class NoteDetailActivity() : AppCompatActivity() {
@@ -59,12 +60,12 @@ class NoteDetailActivity() : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        saveNoteOnLeave()
+        saveNote()
         super.onBackPressed()
     }
 
     override fun onPause() {
-        saveNoteOnLeave()
+        saveNote()
         super.onPause()
     }
 
@@ -73,7 +74,15 @@ class NoteDetailActivity() : AppCompatActivity() {
         super.onResume()
     }
 
-     private fun saveNoteOnLeave() {
+    private fun editListener() {
+        var editText = findViewById<EditText>(R.id.detail_text)
+
+        editText.textChangedListener {
+            saveNote()
+        }
+    }
+
+     private fun saveNote() {
         if (!isSave && newNote) {
             if (noteTitle.text.isNotEmpty() || noteText.text.isNotEmpty()) {
                 notesDb.create(createNote())
