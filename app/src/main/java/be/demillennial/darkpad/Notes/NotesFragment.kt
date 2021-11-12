@@ -59,7 +59,7 @@ class NotesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val context: Context? = super.getContext()
-        val noteContext: Context = activity!!.applicationContext!!
+        val noteContext: Context = requireActivity().applicationContext!!
 
         notesDb = NotesDb(noteContext)
         notes = notesDb.getAll()
