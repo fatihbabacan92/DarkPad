@@ -6,9 +6,7 @@
 
 package be.demillennial.darkpad.Notes
 
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,10 +14,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.demillennial.darkpad.Data.NotesDb
 import be.demillennial.darkpad.R
+
+
+
 
 
 class NotesFragment : Fragment() {
@@ -59,12 +62,17 @@ class NotesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val context: Context? = super.getContext()
-        val noteContext: Context = activity!!.applicationContext!!
+        val noteContext: Context = requireActivity().applicationContext!!
 
         notesDb = NotesDb(noteContext)
         notes = notesDb.getAll()
 
-        notes_list.layoutManager = LinearLayoutManager(activity)
+        if (getLayout() == "Grid") {
+            notes_list.layoutManager = GridLayoutManager(activity, 2)
+        } else {
+            notes_list.layoutManager = LinearLayoutManager(activity)
+        }
+
         noteAdapter = NoteAdapter(notes, context)
         notes_list.adapter = noteAdapter
 
@@ -97,7 +105,13 @@ class NotesFragment : Fragment() {
 
         var notes_list = activity?.findViewById<RecyclerView>(R.id.notes_list)
         var empty_view = activity?.findViewById<TextView>(R.id.empty_view)
-        notes_list?.layoutManager = LinearLayoutManager(activity)
+
+        if (getLayout() == "Grid") {
+            notes_list?.layoutManager = GridLayoutManager(activity, 2)
+        } else {
+            notes_list?.layoutManager = LinearLayoutManager(activity)
+        }
+
         notes_list?.adapter = noteAdapter
 
         if (notes.isEmpty()) {
@@ -123,5 +137,11 @@ class NotesFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         loadNotes()
+    }
+
+    private fun getLayout(): String? {
+        val pref = PreferenceManager.getDefaultSharedPreferences(activity)
+
+        return pref.getString("layout_list", "")
     }
 }

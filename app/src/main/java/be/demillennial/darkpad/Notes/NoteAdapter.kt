@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.preference.PreferenceManager
 import be.demillennial.darkpad.R
 
 
@@ -40,9 +41,29 @@ class NoteAdapter(val notes : ArrayList<Note>, val context: Context?) : Recycler
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.noteTitle?.text = notes[i].title
-        viewHolder.noteText?.text = notes[i].text
+        if (notes[i].title.length > 40 && getLayout() == "Grid") {
+            viewHolder.noteTitle?.text = notes[i].title.substring(0, 40) + "..."
+        } else if (notes[i].title.length > 85 && getLayout() == "List") {
+            viewHolder.noteTitle?.text = notes[i].title.substring(0, 85) + "..."
+        }
+        else {
+            viewHolder.noteTitle?.text = notes[i].title
+        }
 
+        if (notes[i].text.length > 55 && getLayout() == "Grid") {
+            viewHolder.noteText?.text = notes[i].text.substring(0, 55) + "..."
+        } else if (notes[i].text.length > 150 && getLayout() == "List") {
+            viewHolder.noteText?.text = notes[i].text.substring(0, 150) + "..."
+        }
+        else {
+            viewHolder.noteText?.text = notes[i].text
+        }
+    }
+
+    private fun getLayout(): String? {
+        val pref = PreferenceManager.getDefaultSharedPreferences(context!!)
+
+        return pref.getString("layout_list", "")
     }
 
     override fun getItemId(position: Int): Long {

@@ -62,7 +62,7 @@
                         android:background="@null"
                         android:fontFamily="sans-serif"
                         android:gravity="top"
-                        android:inputType="textMultiLine"
+                        android:inputType="textCapSentences|textMultiLine"
                         android:text="@string/no_text"
                         android:textColor="?android:attr/textColor"
                         android:textColorHint="?android:attr/textColor"

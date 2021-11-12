@@ -7,6 +7,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
+            android:title="General"
+            android:icon="@drawable/ic_settings_about_24">
+
+            <ListPreference
+                    android:key="layout_list"
+                    android:title="Note Layout"
+                    android:defaultValue="Grid"
+                    android:entries="@array/layout_values"
+                    android:entryValues="@array/layout_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
             android:title="About"
             android:icon="@drawable/ic_settings_about_24">
         <Preference android:title="Follow us on Twitter">
@@ -19,7 +32,7 @@
                     android:action="android.intent.action.VIEW"
                     android:data="http://fatih.tech" />
         </Preference>-->
-        <Preference android:title="Version 1.0.8" />
+        <Preference android:title="Version 1.1.0" />
         <Preference android:title="Privacy Policy">
             <intent
                     android:action="android.intent.action.VIEW"
