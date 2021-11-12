@@ -57,6 +57,8 @@ class NoteDetailActivity() : AppCompatActivity() {
             deleteOldNoteListener()
             saveOldNoteListener()
         }
+
+        editListener()
     }
 
     override fun onBackPressed() {
