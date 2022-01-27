@@ -21,10 +21,16 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onKey
 import org.jetbrains.anko.sdk27.coroutines.textChangedListener
 import org.w3c.dom.Text
+import android.content.Intent
+
+import android.content.DialogInterface
+
+import be.demillennial.darkpad.MainActivity
+
 
 class NoteDetailActivity() : AppCompatActivity() {
 
-    private lateinit var  notesDb: NotesDb
+    private lateinit var notesDb: NotesDb
     private var note: Note? = null
     private lateinit var noteTitle: TextView
     private lateinit var noteText: TextView
@@ -43,8 +49,7 @@ class NoteDetailActivity() : AppCompatActivity() {
         note = intent.getParcelableExtra("openNote")
         newNote = intent.getBooleanExtra("newNote", false)
 
-        if (newNote)
-        {
+        if (newNote) {
             noteTitle.hint = "Title"
             noteText.hint = "Write your note here..."
             noteTitle.text = ""
@@ -84,7 +89,7 @@ class NoteDetailActivity() : AppCompatActivity() {
         }
     }
 
-     private fun saveNote() {
+    private fun saveNote() {
         if (!isSave && newNote) {
             if (noteTitle.text.isNotEmpty() || noteText.text.isNotEmpty()) {
                 notesDb.create(createNote())
@@ -130,19 +135,37 @@ class NoteDetailActivity() : AppCompatActivity() {
     }
 
     private fun deleteNewNoteListener() {
-        var deleteButton = findViewById<Button>(R.id.buttonDelete)
-        buttonDelete.onClick {
+        val alertDialogBuilder = AlertDialog.Builder(this, R.style.AlertDialog)
+        alertDialogBuilder.setTitle("Delete note")
+        alertDialogBuilder.setMessage("Are you sure you want to delete this note?")
+        alertDialogBuilder.setPositiveButton("Delete") { _: DialogInterface, _: Int ->
             isSave = true
             onBackPressed()
+        }
+        alertDialogBuilder.setNegativeButton("cancel") { _: DialogInterface, _: Int -> }
+        val alertDialog = alertDialogBuilder.create()
+
+        var deleteButton = findViewById<Button>(R.id.buttonDelete)
+        buttonDelete.onClick {
+            alertDialog.show()
         }
     }
 
     private fun deleteOldNoteListener() {
-        var deleteButton = findViewById<Button>(R.id.buttonDelete)
-        buttonDelete.onClick {
+        val alertDialogBuilder = AlertDialog.Builder(this, R.style.AlertDialog)
+        alertDialogBuilder.setTitle("Delete note")
+        alertDialogBuilder.setMessage("Are you sure you want to delete this note?")
+        alertDialogBuilder.setPositiveButton("Delete") { _: DialogInterface, _: Int ->
             notesDb.delete(note!!)
             isSave = true
             onBackPressed()
+        }
+        alertDialogBuilder.setNegativeButton("cancel") { _: DialogInterface, _: Int -> }
+        val alertDialog = alertDialogBuilder.create()
+
+        var deleteButton = findViewById<Button>(R.id.buttonDelete)
+        buttonDelete.onClick {
+            alertDialog.show()
         }
     }
 }
